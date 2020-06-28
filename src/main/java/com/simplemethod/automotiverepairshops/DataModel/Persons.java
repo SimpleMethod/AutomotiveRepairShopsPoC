@@ -1,4 +1,4 @@
-package com.simplemethod.automotiverepairshops.neo4jModel;
+package com.simplemethod.automotiverepairshops.DataModel;
 
 import lombok.*;
 
@@ -8,14 +8,14 @@ import javax.annotation.Resource;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @ToString
 @NoArgsConstructor
-public class CarsParts {
+public class Persons {
     @Getter
     @Setter
     public String name;
     @Getter
     @Setter
-    public String kategoria;
+    public Integer pracownik;
     @Getter
     @Setter
-    Integer cena;
+    Long  telefon;
 }

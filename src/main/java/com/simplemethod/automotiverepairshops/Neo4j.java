@@ -1,8 +1,8 @@
 package com.simplemethod.automotiverepairshops;
 
-import com.simplemethod.automotiverepairshops.neo4jModel.Cars;
-import com.simplemethod.automotiverepairshops.neo4jModel.CarsParts;
-import com.simplemethod.automotiverepairshops.neo4jModel.Persons;
+import com.simplemethod.automotiverepairshops.DataModel.Cars;
+import com.simplemethod.automotiverepairshops.DataModel.CarsParts;
+import com.simplemethod.automotiverepairshops.DataModel.Persons;
 import org.neo4j.driver.*;
 import org.neo4j.driver.exceptions.NoSuchRecordException;
 import org.springframework.stereotype.Component;
@@ -167,10 +167,10 @@ public class Neo4j {
 
 
     /**
-     * Zwraca wszystkie samochody naprawiane przez pracownika.
+     * Zwraca wszystkie cześci potrzebne do samochodu.
      *
-     * @param numerRejestracyjny Dane personalne pracownika
-     * @return Liste obiektów samocchodów
+     * @param numerRejestracyjny Numer rejestracyjny.
+     * @return Liste obiektów części
      */
     public List<CarsParts> findAllPartsToCars(String numerRejestracyjny) {
         try (Session session = driver.session()) {
