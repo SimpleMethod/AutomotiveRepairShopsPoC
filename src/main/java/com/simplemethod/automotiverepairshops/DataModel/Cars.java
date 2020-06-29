@@ -23,7 +23,16 @@ public class Cars {
     public Integer statusNaprawy;
     @Getter
     @Setter
-    public String userka;
+    public String usterka;
 
-
+    @Override
+    public String toString() {
+        return "======================================= \r\n" +
+                "Numer rejestracyjny: " + name + "\r\n" +
+                "Marka:" + marka + "\r\n" +
+                "Model:" + model + "\r\n" +
+                "Status Naprawy: " + statusNaprawy + "\r\n" +
+                "Usterka: " + usterka +  "\r\n" +
+                "======================================= \r\n";
+    }
 }

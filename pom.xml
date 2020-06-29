@@ -78,13 +78,6 @@
             <artifactId>arangodb-java-driver</artifactId>
             <version>6.7.0_PREVIEW_3.7.1-alpha.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -93,7 +86,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.0.1.RELEASE</version>
                 <configuration>
-                    <mainClass>com.simplemethod.university.AutomotiverepairshopsApplication</mainClass>
+                    <mainClass>com.simplemethod.automotiverepairshops.AutomotiverepairshopsApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

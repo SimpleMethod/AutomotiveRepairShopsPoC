@@ -18,4 +18,13 @@ public class CarsParts {
     @Getter
     @Setter
     Integer cena;
+
+    @Override
+    public String toString() {
+        return "======================================= \r\n" +
+                "Nazwa czesci: " + name + "\r\n" +
+                "Kategoria: " + kategoria + "\r\n" +
+                "Cena: " + cena + "\r\n" +
+                "======================================= \n";
+    }
 }

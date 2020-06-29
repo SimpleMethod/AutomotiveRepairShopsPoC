@@ -18,4 +18,21 @@ public class Persons {
     @Getter
     @Setter
     Long  telefon;
+
+
+    @Override
+    public String toString() {
+        final String ifEmployee;
+        if (pracownik == 1) {
+            ifEmployee = "Tak";
+        } else {
+            ifEmployee = "Nie";
+        }
+        ;
+        return "======================================= \r\n" +
+                "Imię i nazwisko: " + name + "\r\n" +
+                "Pracownik: " + ifEmployee + "\r\n" +
+                "Telefon: " + telefon + "\r\n" +
+                "======================================= \n";
+    }
 }

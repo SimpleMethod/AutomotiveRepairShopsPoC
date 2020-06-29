@@ -32,7 +32,7 @@ public class Neo4j {
         try (Session session = driver.session()) {
             final List<Cars> carsArrayList = new ArrayList<>();
             return session.readTransaction(tx -> {
-                final Result result = tx.run("MATCH (s:Samochod) WHERE s.statusnaprawy=$statusnaprawy RETURN s.name, s.marka, s.model, s.statusnaprawy, s.usterka", parameters("statusnaprawy", statusNaprawy));
+                final Result result = tx.run("MATCH (s:Samochod) WHERE s.statusnaprawy=$statusnaprawy RETURN s.name, s.marka, s.model, s.statusnaprawy, s.userka", parameters("statusnaprawy", statusNaprawy));
                 while (result.hasNext()) {
                     carsArrayList.add(new Cars(
                             result.peek().get(0).asString(),
@@ -57,7 +57,7 @@ public class Neo4j {
         try (Session session = driver.session()) {
             final List<Cars> names = new ArrayList<>();
             return session.readTransaction(tx -> {
-                final Result result = tx.run("MATCH (s:Samochod) RETURN s.name, s.marka, s.model, s.statusnaprawy, s.usterka");
+                final Result result = tx.run("MATCH (s:Samochod) RETURN s.name, s.marka, s.model, s.statusnaprawy, s.userka");
                 while (result.hasNext()) {
                     names.add(new Cars(
                             result.peek().get(0).asString(),
@@ -149,7 +149,7 @@ public class Neo4j {
         try (Session session = driver.session()) {
             final List<Cars> names = new ArrayList<>();
             return session.readTransaction(tx -> {
-                final Result result = tx.run("MATCH (p:Osoba { name: $pracownik })-[:NAPRAWIA]-(Samochod) RETURN Samochod.name, Samochod.marka, Samochod.model, Samochod.statusnaprawy, Samochod.usterka", parameters("pracownik", pracownik));
+                final Result result = tx.run("MATCH (p:Osoba { name: $pracownik })-[:NAPRAWIA]-(Samochod) RETURN Samochod.name, Samochod.marka, Samochod.model, Samochod.statusnaprawy, Samochod.userka", parameters("pracownik", pracownik));
                 while (result.hasNext()) {
                     names.add(new Cars(
                             result.peek().get(0).asString(),
@@ -259,7 +259,7 @@ public class Neo4j {
         parameters.put("userka", userka);
         try (Session session = driver.session()) {
             session.writeTransaction(tx -> {
-                tx.run("CREATE (:Samochod {marka:$marka, model:$model, statusnaprawy:0, usterka: $userka, name:$nr})", parameters);
+                tx.run("CREATE (:Samochod {marka:$marka, model:$model, statusnaprawy:0, userka: $userka, name:$nr})", parameters);
                 return 1;
             });
         }
@@ -372,7 +372,7 @@ public class Neo4j {
         try (Session session = driver.session()) {
             final List<Cars> names = new ArrayList<>();
             return session.readTransaction(tx -> {
-                final Result result = tx.run("MATCH (s:Samochod) WHERE s.name=$name RETURN s.name, s.marka, s.model, s.statusnaprawy, s.usterka LIMIT 1", parameters("name", numerRejestracyjny));
+                final Result result = tx.run("MATCH (s:Samochod) WHERE s.name=$name RETURN s.name, s.marka, s.model, s.statusnaprawy, s.userka LIMIT 1", parameters("name", numerRejestracyjny));
                 while (result.hasNext()) {
                     names.add(new Cars(
                             result.peek().get(0).asString(),
